@@ -2,12 +2,14 @@ const request = require("supertest");
 const app = require("../../app");
 const { mongoConnect, mongoDisconnect } = require("../../services/mongo");
 const { getLatestFlightNumber } = require("../../models/launches.model");
+const { loadPlanetsData } = require("../../models/planets.model");
 
 let server;
 
 beforeAll( async () => {
     server = request(app);
     await mongoConnect();
+    await loadPlanetsData();
 });
 
 afterAll( async () => {
