@@ -5,6 +5,7 @@ const { getLatestFlightNumber } = require("../../models/launches.model");
 const { loadPlanetsData } = require("../../models/planets.model");
 
 let server;
+jest.setTimeout(20000)
 
 beforeAll( async () => {
     server = request(app);
